@@ -1,3 +1,8 @@
+Arrays: Basic Concepts 
+- Time Complexity: Insertion : O(1)
+		   Deletion  : O(N)
+
+
 1. Can multiple threads improve the time complexity to merge k sorted arrays? If so, how?
 -No they cannot. They will improve the algorithm run-time and not time complexity. This is because time complexity measures number of computations and even if multiple threads run in parallel, the number of computations will remain the same 
 
@@ -72,4 +77,7 @@ Time Complexity of binary search: O(log N)
 - Convert the array into list [O(N)]
 - traverse the array and check if list.contains(m -arr[i]), if yes, add it to the list of pairs [O(N)]
 - Time complexity: O(2N)
+
+7. Difference between Arrays and vectors. 
+- Vectors are dynamic while arrays have limited space. 
 
