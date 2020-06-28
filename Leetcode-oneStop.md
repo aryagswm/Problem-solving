@@ -1040,7 +1040,6 @@ public ListNode reverseList(ListNode head) {
 }											// new head.
 ```
 
-![reverse Linked list](/Users/devkapupara/Desktop/Notes/dependencies/reverse Linked list.jpg)
 
 
 
