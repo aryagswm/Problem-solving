@@ -65,3 +65,5 @@ Note: Some special cases have to be taken care of.
 Time Complexity: O(2N) 
 Space complexity: O(N)
 
+8. Implementation of circular linked list. 
+- queue implementation
