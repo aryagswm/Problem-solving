@@ -8,4 +8,7 @@
 - Friends Suggestion: For person A find all nodes X that is at distance 2 from node A. (Now this is scalable as the requirements can tell what is the depth we want to look for making suggestions.) 
 - Common Friends: When A visits person B. Find all nodes X that are at distance 1 from node A.
 
-3. 
+3. Difference between ArrayList and vector. 
+- as compared to vector, list has slow traversal, insertion and deletion are quick. 
+- vector is synchronised(only one thread can access method at a time) while arraylist is not. 
+
