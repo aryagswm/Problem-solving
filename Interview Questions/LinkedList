@@ -1,0 +1,19 @@
+1. Given two linked lists find if they are making a shape of 'Y' or a shape of 'V'.
+- traverse both the lists 
+- check if the intersecting node is the last node for both, if yes then V, otherwise Y
+
+Time complexity: O(m+n)
+
+2. Insert a value into a sorted linked list. 
+- Create two pointers, prev and current 
+- Traverse till the node with value greater than insertion value is found
+- check if the prev == null .. that implies that the element has to be added before head.
+- check if prev.next ==null.. that implies that the element has to be added at the end 
+
+Time complexity: O(n) 
+
+3. Implement a doubly linked list using stacks. 
+- Use two stacks. One to store data in given order, other one to store data in reverse order 
+Time complexity: O(2N)
+
+4. 
