@@ -19,7 +19,6 @@ public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
 
 ### [Count And Say](https://leetcode.com/problems/count-and-say/)
 
-The updated version runs in 2ms and passes 96.85% submissions.
 
 ```java
 public String countAndSay(int n) {
