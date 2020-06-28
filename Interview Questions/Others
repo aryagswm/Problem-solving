@@ -12,3 +12,13 @@
 - as compared to vector, list has slow traversal, insertion and deletion are quick. 
 - vector is synchronised(only one thread can access method at a time) while arraylist is not. 
 
+4. need to implement a weather report functionality. user will provide the city name , need to return the weather report. 
+if weather station exists n functioning properly , will return the weather report of that station . 
+else , 
+will return the nearest available weather station report. 
+interviewer looking for optimized manner. 
+looking for datastructures to stores the cities n algo to return the report.
+
+- use HashMap + Linked List to solve this. HashMap with city names as key and Linked List(containing weather stations) as value. Linked List head will have the most accurate weather station and next node will point to the nearest weather station. So all linked list nodes will be sorted based on distance from most 
+accurate weather station.
+
