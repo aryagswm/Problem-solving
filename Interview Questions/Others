@@ -22,3 +22,7 @@ looking for datastructures to stores the cities n algo to return the report.
 - use HashMap + Linked List to solve this. HashMap with city names as key and Linked List(containing weather stations) as value. Linked List head will have the most accurate weather station and next node will point to the nearest weather station. So all linked list nodes will be sorted based on distance from most 
 accurate weather station.
 
+5. Find the minimum element in a stack in O(1) time complexity and O(n) space complexity
+- Create a treemap insert all values into it, return the first element
+- create a min heap, return the root value. 
+
