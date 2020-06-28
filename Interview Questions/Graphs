@@ -1,0 +1,27 @@
+Graphs 
+
+1. Suppose you have a list of tasks which need to be executed. Some of these tasks have dependencies which must be executed before they are. Please provide a method which, when given a list of tasks, will provide a valid ordering in return. 
+
+Example: 
+Input: [ A, B, C, D ] 
+A <- B, C 
+B <- C, D 
+D <- C 
+Return: [ C, D, B, A ]
+
+Consider this as a directed graph and traverse the graph using Breadth First/Depth First. I prefer Breadth first.
+- While traversing, create a dictionary to store the count of adjacent vertices to each vertex
+adj(a) = 2
+adj(b) = 2
+adj(c) = 0
+adj(d) = 1
+- Set prevNode = null
+- Get the nodes with minimum value in dictionary and set that as start node -- node c
+- Choose the one that includes prevNode or pick one if prevNode == null
+- Store it in a list
+- Keep on looping and you will get the order
+- Print the list
+
+- Topological sorting of vertices
+
+2. 
