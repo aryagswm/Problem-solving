@@ -1,0 +1,11 @@
+1. Design a telephone directory for large ppl. fields will be , first name , last name , number . this should be searchable with first name , last name , number as welll. 
+   later added more complexity like do the same for organisation where even it contains designations. so this should be searchable with designations.
+- If you are doing it using java , you just need to create people object , you can add as many fields to the object , and getter and setter methods for them and store them in an array or Arraylist or Set might be even better based on the requirements. When searching and sorting you can implement one Comparable interface for the natural ordering and various comparator objects for different kind of sorting. Seems straightforward in case of Java. If this problem is a database problem , store the values in different fields and do not allow extra spaces to the fields. Index the fields you want to do search upon.
+
+2. Design a system like friend's functionality in facebook. should have all features of facebook's friends functionality. like for each person , he can have any number of friends , he will get suggestions for new firends , showing common friends if we visits any other profile . algo should be scalable , robust .
+- Basically a friends network is an undirected graph. Each person is a vertex of the graph and friendship is an edge between the two vertices. We can represent the graph by by maintaining an adjacency list. 
+- Like: Each person maintains a list of Posts. Lets say person A puts a post, persons who are connected to person A will be notified about the post (observer pattern). Friend B can like a post which increase the 'Like' count. 
+- Friends Suggestion: For person A find all nodes X that is at distance 2 from node A. (Now this is scalable as the requirements can tell what is the depth we want to look for making suggestions.) 
+- Common Friends: When A visits person B. Find all nodes X that are at distance 1 from node A.
+
+3. 
