@@ -16,4 +16,52 @@ Time complexity: O(n)
 - Use two stacks. One to store data in given order, other one to store data in reverse order 
 Time complexity: O(2N)
 
-4. 
+4. Delete the repeated elements in a singly linked list in O(n) time complexity without using extra space. Linked list contains elements in unsorted order 
+P.S. - Sorting is not allowed
+ - Create an arraylist. 
+ - Traverse throughout the linkedlist and for each element check if the element is already there, if yes, delete the element. If no, then insert it into the arraylist. 
+ 
+ Time Complexity: O(N)
+ Space complexity: O(N) : for arraylist
+ 
+ 5. reverse the doubly linked list without using extra space
+ 
+ public static Node reverse(Node head){
+	Node n = head, next;
+	while(n.next() != null){
+		next = n.next;
+		n.next = n.prev;
+		n.prev = next;
+		n = next;
+	}
+	// n is the new head.
+	return n;
+}
+
+6. Delete a node from SLL, in which the last node points to the middle node( in case of even no of nodes, it points to the first middle node) and update the SLL.
+
+Step 1: Try to find out the middle node and also the number of the nodes in the linked list whether they are even or odd. 
+
+How to: Start from Head (using fast and the slow pointers). 
+if fast -> next == slow (Then the number of nodes would be odd). 
+else if (fast->next->next == slow) then the number of nodes would be even. 
+Now after this iteration we would be able to get the pointer to the middle element and also to the last element in the linked list. 
+
+Step 2: Remove the node: 
+
+How To: Go to the desired node. 
+if the number of nodes are odd then after removal of the desired node the number of nodes would be even so the location of the middle element wont change. 
+
+In case there are odd nodes currently then the new middle node would be the node previous to the current middle node. 
+
+Note: Some special cases have to be taken care of. 
+1. If the desired node itself is the middle element. 
+2. If the desired node is the last element in the linked list.
+
+7. Given a linked list with next and high pointers, populate high pointers to the next higher node, inplace and O(n).
+- Create a treemap with node value as key and index as value. 
+- Traverse the entire linked list while pointing high pointer to immediately next pair in treemap since treemap stores pairs in sorted way on basis of keys. 
+
+Time Complexity: O(2N) 
+Space complexity: O(N)
+
