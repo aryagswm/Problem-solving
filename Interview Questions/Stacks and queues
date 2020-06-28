@@ -1,0 +1,73 @@
+Stacks : Basic concepts 
+- Time Complexity: push(), pop(), isEmpty(), peek() : O(1)
+- Two ways of implementation : Arrays, linked list
+
+Queues : Basic Concepts 
+- Time Complexity: enqueue(), dequeue(), isFull(), isEmpty(), front(), rear() : O(1)
+- FIFO : first in first out 
+
+                    ------------------------------
+ [pop()] remove ->  ------------------------------   <- insertion[push()]
+ 
+ 1. Implement stacks using queues 
+ - USING TWO QUEUES 
+    push element in q1 
+    remove elements until only one element is left, dequeue(pop) that one element
+    - interchange the names of queues to avoid redundancy of data 
+- USING ONE QUEUE
+    push elements
+    rotate 'size' times
+    
+2. Implement queues using stacks 
+- PUSH EXPENSIVE 
+    insert elements into stack1                         [top](1,2)[bottom]
+    transfer the elements into stack2                   [top] (2,1) [bottom]
+    push the element to be inserted into stack1
+    transfer the element back to stack1 from stack 2    [top] (1,2,3)[Bottom]
+    pop normally
+    
+- POP EXPENSIVE 
+    push elements normally                              [top] (3,2,1)[Bottom]
+    for popping, transfer the elements into stack2      [top] (1,2,3)[Bottom]
+    pop the elements                                    [top] (2,3)[Bottom]
+    
+3. Implementation of Queues 
+- LRU, Page fault algorithm, quick short algorithm
+
+4. Sort a stack using only one other stack and no recursion.
+  
+    Stack<Integer> st2 = new Stack<>();
+    while(!st1.isEmpty()){
+      int next = st1.pop();
+      if(st2.peek()<next){
+        st.push(next);
+      }
+      else{
+        while(st2.peek()<next){
+          st1.push(st2.pop());
+        }
+        st2.push(next);
+      }
+      
+5. design and implement a calculater that can calculate expressions like: 
++ 2 4 
+* 8 ( + 7 12) 
+( + 7 ( * 8 12 ) ( * 2 (+ 9 4) 7 ) 3 ) 
+
+(PS:all items are space delimetered.) 
+
+Example answers 
++ 2 4 => 2 + 4 = 6 
+* 8 ( + 7 12) => 8 * ( 7 + 12 ) = 152 
+( + 7 ( * 8 12 ) ( * 2 (+ 9 4) 7 ) 3 ) => 7+8*12+2*(9+4)*7+3 = 148
+
+1. Split the given string into a string array
+2. Start from the back of the array
+3. If you find braces "(" or ")" just ignore
+4. If you find an operand, push onto stack
+5. If you find an operator, pop two top operands, calculate result and then push back the result to stack.
+
+
+        
+    
+    
