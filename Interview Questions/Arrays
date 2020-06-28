@@ -1,0 +1,75 @@
+1. Can multiple threads improve the time complexity to merge k sorted arrays? If so, how?
+-No they cannot. They will improve the algorithm run-time and not time complexity. This is because time complexity measures number of computations and even if multiple threads run in parallel, the number of computations will remain the same 
+
+2. Given two arrays (of numbers), how can you find the common elements between the two arrays? What is the complexity? Will the complexity change is one array is much larger than the other?
+- Create arraylist of bigger array
+- traverse the smaller array and using .contains method, check if the element is there
+- Time Complexity: O(N*N)
+
+Another approach is: 
+static void printIntersection(int arr1[], int arr2[], int m, int n) 
+    { 
+      int i = 0, j = 0; 
+      while (i < m && j < n) 
+      { 
+        if (arr1[i] < arr2[j]) 
+          i++; 
+        else if (arr2[j] < arr1[i]) 
+          j++; 
+        else 
+        { 
+          System.out.print(arr2[j++]+" "); 
+          i++; 
+        } 
+      } 
+- Time complexity: O(M+N)
+
+3. find out all the elements in a sorted integer array whose value is equal to index of the array. 
+O(logn) solution is expected.
+
+static void BinSearch(int low,int high,int[] arr,int key){
+	if (low>high)
+		return;
+	else
+	{
+	  int mid=(low+high)/2;
+
+	  if(arr[mid]==mid)
+		  System.out.println("Key Found "+arr[mid]);
+	  if(arr[mid]>=mid)
+		  BinSearch(low,mid-1,arr,key);
+	  if(arr[mid]<=mid)
+		  BinSearch(mid+1,high,arr,key);
+	  
+	}
+}
+
+- Time Complexity: O(log n)
+
+4. Find the missing number if an array is given. 
+
+int missing_number(int len, int a[]) 
+{ 
+sum=len*(len+1)/2; 
+for(int i=0; i<len;i++) 
+{ 
+sum=sum-a[i]; 
+} 
+return (sum); 
+}
+
+- Time complexity: O(n)
+- Code works even if the array is unsorted
+
+5. How would you find an element in a sorted array (but the array is unbounded). 'Unbounded' means the array is not pre-filled but rather getting filled as data flows in.
+- Find the initial size of array 
+- If the newly added element is less than the target element, wait till the element is entered and then return the index
+- If the first element added is greater than the target element, do a binary search in the initial array 
+
+Time Complexity of binary search: O(log N)
+
+6. you have an array of n integers, how would you find the integer pairs which sum to m? complexity?
+- Convert the array into list [O(N)]
+- traverse the array and check if list.contains(m -arr[i]), if yes, add it to the list of pairs [O(N)]
+- Time complexity: O(2N)
+
