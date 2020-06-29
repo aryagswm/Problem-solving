@@ -1,0 +1,76 @@
+Searching: Basic Concepts 
+-Linear Search : O(N)
+-Binary Search : O(log N) 
+-Ternary Search : O(log3 N)
+  Divide and conquer algo
+  Divides array into three parts 
+  l = 0, r = n-1
+  mid1 = l+ (r-1)/3
+  mid2 = r- (r-1)/3
+  
+Sorting: Basic Concepts 
+- Insertion Sort: O(N^2)
+- Bubble Sort: O(N^2)
+- Selection Sort: O(N^2)
+- Quick Sort: T(K) + T(N-K-1) + O(N)
+- Merge Sort: 2T(N/2) + O(N)
+- Counting Sort: O(N)
+- Heap Sort: O(N*logN)
+- Arrays.sort(arr): O(NlogN)
+
+
+1. You are given an array with duplicates. You have to sort the array with decreasing frequency of elements. If two elements have the same frequency, sort them by their actual value in increasing order. 
+Ex: [2 3 5 3 7 9 5 3 7] 
+Output: [3 3 3 5 5 7 7 2 9]
+- Use hashmap hm to store frequency of each element : O(N)
+- Sort the hashmap on basis of value using the following command
+  "Map<String, Integer> sorted = hm .entrySet() .stream() .sorted(comparingByValue()) .collect(toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e2,
+                LinkedHashMap::new);"
+- rearrange the array
+-Time Complexity: O(N)
+
+2. You are given a 1 GB of numbers, you have to sort them. Tell me the time required in seconds ?
+- Divide memory into 9 parts: quick sort on 8 parts: merge all sorted values into 9 th part
+- Around 10^9 operations can be performed in one second, so this should be around 7-8 seconds.
+
+3. Given a array where each element is maximum +-k index away from it's sorted position, find an algorithm to sort such array.
+- Insertion Sort: O(N^2)
+- Arrays.sort(): O(NlogN)
+
+4. Whats the difference between quick sort and merge sort? Which one to use? Do we need file sorted before merge sort?
+- The main difference between quicksort and merge sort is that the quicksort sorts the elements by comparing each element with an element called a pivot while merge sort divides the array into two subarrays again and again until one element is left.
+- Quick Sort works faster in smaller arrays only
+- Quick sort requires minimum space while merge sort requires more space
+- No, we don't need file sorted before merge sort. 
+
+5. Given a Sorted integer array which is rotated N number of times. You have no idea what that N is. An element in the array can occur more for any number of time. Write a method to search the position of a given element. If there are more than one of the same element, return the position of the first element.
+- Insert the elements into treemap with element as key and index as value. 
+- Return the index of first element 
+- There are duplicates but since we need to return the first occurence, so the second element will not be included(use .contains to check if element is already inserted into treemap, if yes, then don't insert new value) in the treemap making no difference for duplicate elements.
+- Time Complexity: O(N)
+
+6. In what situations bubble sort, selection sort, insertion sort, merge sort, quick sort and heap sort will have best time complexity. Provide example for each sort and explain
+- BUBBLE SORT 
+    Sorted array as input. Or almost all elements are in proper place. [ O(N) ]. O(1) swaps.
+    While the insertion, selection, and shell sorts also have O(n2) complexities, they are siginificantly more effi- icient thanbubble sort.
+    
+- SELECTION SORT 
+     [ O(N2) ]. Also O(N) swaps.
+     It yields a 60% performance improvement over the bubble sort, but the insertion sort is over twice as fast as the bubble sort and is just as easy to implement as the selection sort. In short, there really isn’t any reason to use the selection sort - use the insertion sort instead.
+     
+- INSERTION SORT 
+     Sorted array as input, [ O(N) ]. And O(1) swaps.
+     For larger values of N, it is inefficient.
+     Although it has the same complexity, the inser- tion sort is a little over twice as efficient as the bubble sort.
+
+- MERGE SORT 
+    The merge sort is slightly faster than the heap sort for larger sets, but it requires twice the memory of the heap sort because of the second array.
+    
+- QUICK SORT 
+    The quick sort is an in-place, divide-and-conquer, massively recusrsive sot. It can be said as the faster version of the merge sort. The efficiency of the algorithm is majorly impacted by which element is chosen as the pivot
+
+- HEAP SORT 
+    It is the slowest of the O(nlogn) sorting algorithms but unlike merge and quick sort it does not require massive recursion or multiple arrays to work.
+    
+
+
