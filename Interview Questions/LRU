@@ -1,0 +1,41 @@
+class LRUCache {
+Map<Integer,Integer> m = null;
+Deque q = null;
+int max=0;
+
+public LRUCache(int capacity) {
+    this.max = capacity;
+    this.m = new HashMap<>();
+    this.q = new LinkedList<Integer>();   
+}
+
+public int get(int key) {
+    if(m.containsKey(key))
+    {
+        q.remove(key);
+        q.addFirst(key);
+        return m.get(key);
+    }
+    else
+        return -1;   
+}
+
+public void put(int key, int value) {
+    if(!m.containsKey(key))
+    {
+        if(m.size()>=max)
+        {
+            m.remove(q.pollLast());
+        }
+        m.put(key,value);
+        q.addFirst(key);
+    }
+    else
+    {
+        m.put(key,value);
+        q.remove(key);
+        q.addFirst(key);
+    }    
+}
+}
+
