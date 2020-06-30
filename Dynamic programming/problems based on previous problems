@@ -1,0 +1,23 @@
+1. Deletions required to make a string palindrome 
+- Problem used: Longest Palindrome Subsequence
+- no of deletion = length of string - length of largest string subsequence 
+
+Time Complexity: O(N*N) 
+
+2. Count no of palindromic substring 
+- Problem Used: Longest Palindromic substring 
+
+for (int startIndex = st.length() - 1; startIndex >= 0; startIndex--) {
+      for (int endIndex = startIndex + 1; endIndex < st.length(); endIndex++) {
+        if (st.charAt(startIndex) == st.charAt(endIndex)) {
+          // if it's a two character string or if the remaining string is a palindrome too
+          if (endIndex - startIndex == 1 || dp[startIndex + 1][endIndex - 1]) {
+            dp[startIndex][endIndex] = true;
+            count++;  (Instead of find maxlen as done in longest palindromic substring, we just increase the count) 
+          }
+        }
+      }
+      
+Time Complexity: O(N*N) 
+
+
