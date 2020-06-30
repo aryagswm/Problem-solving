@@ -24,4 +24,132 @@ adj(d) = 1
 
 - Topological sorting of vertices
 
-2. 
+2. let's say you're given an arbitrary list of relations r1 and r2 from objects in a set of arbitrary size. find the size of th largest subset with the property that no two are related. for e.g., given set S = {a,b,c,d,e,f} and relations {a,d}, {b,c}, {a,c}, {a,e}, find the subset of S such that no two a connected.
+- Largest independent set problem 
+
+  LISS(Node root){
+    if(root==null){
+      return 0;
+      }
+    int size_excl = LISS(root.left) + LISS(root.right);
+    int size_incl = 1;
+    if(root.left!=null){
+      size_incl += LISS(root.left.left) + 
+                    LISS(root.left.right);
+    }
+    if(root.right!=null){
+      size_incl +=LISS(root.right.left) + LISS(root.right.right);
+    }
+    return Math.max(size_incl, size_excl);
+ }
+     Time Complexity: Exponential due to recursive function 
+
+3. Find distance between two given nodes in a binary tree/ binary search tree. 
+- Find LCA 
+ public static Node LCA(Node root, int n1, int n2)  
+    { 
+        if (root == null) 
+            return root; 
+        if (root.value == n1 || root.value == n2) 
+            return root; 
+  
+        Node left = LCA(root.left, n1, n2); 
+        Node right = LCA(root.right, n1, n2); 
+  
+        if (left != null && right != null) 
+            return root; 
+        if (left != null) 
+            return LCA(root.left, n1, n2); 
+        else
+            return LCA(root.right, n1, n2); 
+    } 
+  
+    // Returns level of key k if it is present in 
+    // tree, otherwise returns -1 
+    
+- Find the distance of each node from LCA 
+  public static int findLevel(Node root, int a, int level) 
+    { 
+        if (root == null) 
+            return -1; 
+        if (root.value == a) 
+            return level; 
+        int left = findLevel(root.left, a, level + 1); 
+        if (left == -1) 
+            return findLevel(root.right, a, level + 1); 
+        return left; 
+    } 
+- Add the distance
+  public static int findDistance(Node root, int a, int b) 
+    { 
+        Node lca = LCA(root, a, b); 
+  
+        int d1 = findLevel(lca, a, 0); 
+        int d2 = findLevel(lca, b, 0); 
+  
+        return d1 + d2; 
+    } 
+    Time Complexity: O(N)
+4.  Given a BST (Binary Search Tree) , Each node value should replace with sum of the node which are greater-than the given node. 
+
+conditions : 
+No Extra space / variable can use 
+Modify the existing tree in optimal way.
+
+- Replace root.val = root.right.val 
+
+5. Given two (binary) trees, return the first pair of non-matching leaves 
+
+Tree 1: A, B, C, D, E, null, null 
+Tree 2: A, D, B 
+
+Output: (E,B)
+
+- Do an inorder traversal and create one list for each tree to store leaves
+- Return the first unequal leaves from the list 
+
+Time Complexity: O(M+N)
+
+6. Suggest a data structure and implement efficient phrase search along with word search in a huge chunk of text.
+- Trie can be used 
+- Time Complexity for searching : O(N) 
+
+7. Given the root of a binary tree containing integers, print the columns of the tree in order with the nodes in each column printed top-to-bottom.
+
+ static void getVerticalOrder(Node root, int hd, 
+                                TreeMap<Integer,Vector<Integer>> m) 
+    { 
+        // Base case 
+        if(root == null) 
+            return; 
+          
+        //get the vector list at 'hd' 
+        Vector<Integer> get =  m.get(hd); 
+          
+        // Store current node in map 'm' 
+        if(get == null) 
+        { 
+            get = new Vector<>(); 
+            get.add(root.key); 
+        } 
+        else
+            get.add(root.key); 
+          
+        m.put(hd, get); 
+          
+        // Store nodes in left subtree 
+        getVerticalOrder(root.left, hd-1, m); 
+          
+        // Store nodes in right subtree 
+        getVerticalOrder(root.right, hd+1, m); 
+    } 
+      
+      Time Complexity: O(N)
+8. Assuming you have a binary tree which stores integers, count the number of nodes whose value is lower than the value of its upper nodes.
+- Create a list
+- if root.val < pval (parent value) { list.add(root.val); } 
+
+Time Complexity: O(N)
+
+
+  
