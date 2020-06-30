@@ -26,3 +26,23 @@ accurate weather station.
 - Create a treemap insert all values into it, return the first element
 - create a min heap, return the root value. 
 
+6. Difference between encryption and hashing?
+- Encrytpion is two way process, input can be decrypted as well
+- However, in hashing, it is only one way process, there's no way to unhash/ dehash the input
+
+7. How would you handle collision during hashing? 
+- OPEN ADDRESSING
+   in that it tries to find the next open slot or address in the hash table
+- CHAINING
+   An alternative method for handling the collision problem is to allow each slot to hold a reference to a collection (or chain) of items. Chaining allows many items to exist at the same location in the hash table. 
+  
+8. Difference between hashtable and binary tree? 
+- Hashtable is better for storage if no sorting is required. However, binary tree is better for storage with sorting
+- No collision in binary tree, collision is possible in hashing
+- Input data size is required in hashtable and not in binary tree
+- Time complexity of insertion/ deletion/ searching 
+      binary tree: O(logN)
+      hashtable: O(1) 
+      
+9. What is dynamic hashing? 
+- The process of storing large data after hashing into smaller size
