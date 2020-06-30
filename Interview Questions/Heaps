@@ -4,6 +4,20 @@ Heaps : Basic Concepts
   left child: Arr[2*i]
   right child: Arr[2*i + 1] 
 - Index of root = 1
-- Time Complexity: O(logN)
+- Time Complexity: O(NlogN)
 
+1. Is heap completely sorted? 
+- No, only the root element is either maximum(in max heap) or minimum(in min heap) 
 
+2. Heap is based on what data structure? 
+- Tree
+
+3. How would you implement a heap? 
+- Using priority queue
+- Using arrays 
+
+4. Implementation of heaps
+- LRU Cache
+
+5. Time complexity of heap sort? 
+- Time complexity: O(logN)
