@@ -1,0 +1,9 @@
+Heaps : Basic Concepts
+- Heaps are implemented using ARRAYS 
+- parent of element i = Arr[i/2]
+  left child: Arr[2*i]
+  right child: Arr[2*i + 1] 
+- Index of root = 1
+- Time Complexity: O(logN)
+
+
