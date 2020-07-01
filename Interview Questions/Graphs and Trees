@@ -1,4 +1,4 @@
-Graphs 
+Graphs and Trees
 
 1. Suppose you have a list of tasks which need to be executed. Some of these tasks have dependencies which must be executed before they are. Please provide a method which, when given a list of tasks, will provide a valid ordering in return. 
 
@@ -151,5 +151,25 @@ Time Complexity: O(M+N)
 
 Time Complexity: O(N)
 
+9. Given the Pre-order of the BST .check if each non-leaf node has only one child.Linear Time is expected.
 
+boolean checkOneChild(int[] preorder) 
+{ 
+for(int i=0; i<preorder.length-2; i++) 
+{ 
+int a = preorder[i]-preorder[i+1]; 
+int b = preorder[i]-preorder[preorder.length-1]; 
+if(a*b<0) 
+return false; 
+if(a*b==0) 
+{ 
+if(a+b<0) 
+return false; 
+} 
+} 
+}
+
+The above code is checking if the child node and the leaf node(last node) lies on the same side (Left or Right) of the Sub Tree. Means if the a*b is <0 means 
+1. Child is smaller then parent(i) and Last Node is greater then parent(i) 
+2. Child is Greater then parent(i) and Last Node is smaller then parent(i)
   
