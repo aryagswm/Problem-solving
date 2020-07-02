@@ -83,5 +83,28 @@ for(int i=0;i<gcd;i++){
    
    Time Complexity: O(n*k)
    
-5. 
-        
+5. Greatest common divisor of two integers
+
+  A=x; B= y;
+  
+  if(B==0){
+    return A;
+  }
+    while(B!=0){
+      C = A%B;
+      A=B;
+      B=C;
+      }
+      return A;
+      }
+      
+6. Find the next greatest number using same set of digits
+
+example: 218765
+
+- Start traversing the array from end
+- find the next smaller no than the last digit   [No smaller than last digit(5) : 1)
+- swap the digit with last digit                 [258761]
+- sort the digits                                [25 - 8761 => 251678]
+
+
