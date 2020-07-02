@@ -1,0 +1,87 @@
+1. Given no is prime or not
+
+for(int i=0;i<Math.sqrt(n)+1;i++){
+  if(n%i==0){
+    return false;
+    }
+    }
+    return true;
+    
+Time complexity: Math.sqrt(n)
+
+2. Prime factors of a given no 
+
+SIEVE OF ERATOSETHENES
+
+boolean[] prime = new boolean[n];
+for(int i=0;i<n;i++){
+  prime[i] = true;
+  }
+  
+  for(int i=2;i*i<=n;i++){
+    if(prime[i]==true){
+      for(int k=0;k<n;k+=i){
+        prime[k] = false;
+        }
+      }
+   }
+   for(int i=0;i<n;i++){
+    if(prime[i]==true){
+      list.add(i);
+      }
+   }
+   return list;
+   
+
+3. Fastest exponential modular : x^y %z, where z is a huge prime no. 
+
+      int ans = 1;
+      while(y>=1){
+        if(y%2==0){
+          y=y/2;
+          x = (x*x)%z;
+        }
+        else{
+          ans = (ans*x)%z;
+          y--;
+        }
+      }
+      return ans;
+      
+Time complexity: O(long N)
+
+- memory usage is reduced
+- cannot store huge numbers in integer
+
+4. Rotation of array 
+
+System.arrayCopy(source_array, source_position,destination_array,destination_position,length)
+
+System.arrayCopy(num,0,dest,n-d,d);
+System.arrayCopy(num,d,dest,0,n-d);
+
+Time complexity: O(n)
+
+Inplace sol: length of array: n, no of rotations: k
+
+k = k%n;
+int d;
+int gcd = gcd(k,n); //no of loops 
+for(int i=0;i<gcd;i++){
+  int temp = arr[i];
+  int j=0;
+  while(true){
+    d = (j+k)%n;
+    if(d==i){
+      break;
+    }
+    A[j] = A[d];
+    j = d;
+    }
+   A[d] = temp;
+   }
+   
+   Time Complexity: O(n*k)
+   
+5. 
+        
