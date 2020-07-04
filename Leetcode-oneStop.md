@@ -192,44 +192,27 @@ public boolean isSameTree(TreeNode p, TreeNode q)
 ### [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 
 ```java
-public boolean isSymmetric(TreeNode root)
-{
-    return isSymmetricIterative(root);
-}
-
-public boolean isSymmetricIterative(TreeNode root)
-{
-    Queue<TreeNode> track = new LinkedList<>();
-    track.add(root);		// Add the root twice so we can compare its left and right
-    track.add(root);
-    while (!track.isEmpty())
-    {
-        TreeNode x = track.poll();		// Remove 2 nodes
-        TreeNode y = track.poll();
-
-        if (x == null && y == null)		// If they are both null, skip it.
-            continue;
-        if (x == null || y == null || x.val != y.val)
-            return false;				// If values don't match or one is null
-        track.add(x.left);		// Otherwise add them in this order -> LRRL
-        track.add(y.right);		// because we need to compare left most with the
-        track.add(x.right);		// right most, then inner left with inner right.
-        track.add(y.left);
+class Solution {
+    private boolean flag = true;
+    public boolean isSymmetric(TreeNode root) {
+        sym(root,root);
+        return flag;
     }
-    return true;		// Everything's all right, so they must be symmetric.
-}
-
-public boolean isSymmetricRecursive(TreeNode root)
-{
-    return helperRecursive(root, root);
-}
-
-private boolean helperRecursive(TreeNode x, TreeNode y)
-{
-    if (x == null || y == null)		// Base Case: Both or one is null, so true
-        return true;
-    return (x.val == y.val && helperRecursive(x.left, y.right) && helperRecursive(x.right, y.left));
-    // Check if values match and 1.left matches with the 2.right and 1.right matches with 2.left
+    private void sym(TreeNode root1, TreeNode root2){
+        if(root1==null && root2 ==null){
+            return;
+        }
+        if(root1==null || root2==null){
+            flag = false;
+            return;
+        }
+        if(root1.val == root2.val){
+            sym(root1.left,root2.right); sym(root1.right,root2.left);
+                return;
+            }
+            flag = false;
+        return;
+    }
 }
 ```
 
