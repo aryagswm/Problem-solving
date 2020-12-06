@@ -173,3 +173,7 @@ The above code is checking if the child node and the leaf node(last node) lies o
 1. Child is smaller then parent(i) and Last Node is greater then parent(i) 
 2. Child is Greater then parent(i) and Last Node is smaller then parent(i)
   
+10. Find the total number of nodes in a binary tree. 
+- Traverse the tree in such a way that you travel each right node only. If the leaf node is right node: total nodes = 2^count-1
+if leaf node is left node: 2^count-2
+Time complexity: O(logn) 
